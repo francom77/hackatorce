@@ -114,6 +114,8 @@ App.Views.QuestionsView = Backbone.View.extend({
 				lat: this.lat,
 				long: this.long
 			});
+		}else{
+			alert('El campo nombre es requerido');
 		}
 	},
 
@@ -124,7 +126,7 @@ App.Views.QuestionsView = Backbone.View.extend({
 				this.long = position.coords.longitude;
 			}, this));
 		}catch (e){
-			alert("Geolocation should be enabled");
+			alert("La geolocalización debe estar activada");
 		}
 	}
 });
