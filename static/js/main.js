@@ -15,7 +15,7 @@ App.Router = Backbone.Router.extend({
 	routes: {
 		"": "home",
 		"questions": "questions",
-		"map/:type": "map"
+		"map/:type/:name/:point": "map"
 	},
 
 	home: function(){
@@ -36,7 +36,8 @@ App.Router = Backbone.Router.extend({
 		$('#main').html(view.render().$el);
 
 		view.on('questions:ready', _.bind(function(data){
-			this.navigate('map/' + data.activityType, {
+			this.navigate(
+				'map/' + data.activityType + "/" + data.name + "/" + data.point, {
 				trigger: true
 			});
 		}, this));
@@ -106,7 +107,7 @@ App.Views.QuestionsView = Backbone.View.extend({
 			this.trigger('questions:ready', {
 				name: name,
 				activityType: activityType,
-				point: ""
+				point: "23234.293423,234239.2394234"
 			});
 		}
 	}
