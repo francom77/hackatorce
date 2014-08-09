@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
 
     #API urls
+    url(r'^api/actividades/actividades$', 'website.views.APIActividades'),
     url(r'^api/actividades/airelibre$', 'website.views.APIActividadesLibre'),
     url(r'^api/actividades/adentro$', 'website.views.APIActividadesAdentro'),
     url(r'^api/actividades$', 'website.views.APICrearActividad'),

@@ -15,7 +15,7 @@ App.Router = Backbone.Router.extend({
 	routes: {
 		"": "home",
 		"questions": "questions",
-		"map/:type/:name/:point": "map"
+		"map/:type/:name/:lat/:long": "map"
 	},
 
 	home: function(){
@@ -37,7 +37,7 @@ App.Router = Backbone.Router.extend({
 
 		view.on('questions:ready', _.bind(function(data){
 			this.navigate(
-				'map/' + data.activityType + "/" + data.name + "/" + data.point, {
+				'map/' + data.activityType + "/" + data.name + "/" + data.lat + "/" + data.long, {
 				trigger: true
 			});
 		}, this));
@@ -91,6 +91,10 @@ App.Views.QuestionsView = Backbone.View.extend({
 		"click button": "_handleButton",
 	},
 
+	initialize: function(){
+		this._getGeoPosition();
+	},
+
 	render: function(){
 
 		this.$el.html(this.template());
@@ -107,8 +111,20 @@ App.Views.QuestionsView = Backbone.View.extend({
 			this.trigger('questions:ready', {
 				name: name,
 				activityType: activityType,
-				point: "23234.293423,234239.2394234"
+				lat: this.lat,
+				long: this.long
 			});
+		}
+	},
+
+	_getGeoPosition: function(){
+		try {
+			navigator.geolocation.getCurrentPosition(_.bind(function(position){
+				this.lat = position.coords.latitude;
+				this.long = position.coords.longitude;
+			}, this));
+		}catch (e){
+			alert("Geolocation should be enabled");
 		}
 	}
 });
