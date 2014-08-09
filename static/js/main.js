@@ -19,8 +19,16 @@ App.Router = Backbone.Router.extend({
 	},
 
 	home: function(){
+
 		var view = new App.Views.HomeView();
 		$('#main').html(view.render().$el);
+
+		view.on('button:ready', _.bind(function(){
+			this.navigate('questions', {
+				trigger: true
+			});
+		}, this));
+
 	},
 
 	questions: function(){
@@ -51,11 +59,19 @@ App.Views.HomeView = Backbone.View.extend({
 
 	template: _.template($("#homeTemplate").html()),
 
+	events: {
+		"click button": "_buttonClicked"
+	},
+
 	render: function(){
 
 		this.$el.html(this.template());
 
 		return this;
+	},
+
+	_buttonClicked: function(){
+		this.trigger('button:ready');
 	}
 });
 
