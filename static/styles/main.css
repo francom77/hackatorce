@@ -197,6 +197,38 @@ body{
 	-webkit-transtion: all 0.2s linear;
 }
 
+@media only screen and (max-width : 768px){
+	.sectionMenu article p{
+		font-family: "Ninios";
+		float: left;
+		margin: 0;
+		padding: 15px 5px 5px 5px;
+		width: 70%;
+	}
+
+	.sectionMenu article button:hover{
+		font-weight: normal;
+	}
+}
+
+@media only screen and (max-width : 640px){
+	.sectionMap{
+		width: 100%;
+	}
+
+	.sectionMenu article button:hover{
+		font-weight: bolder;
+	}
+
+	.sectionMenu{
+		width: 100%;
+	}
+
+	.sectionMenu article button:first-child{
+		width: 95%;
+	}
+}
+
 @media only screen and (max-width : 480px) {
 	.questionHeader{
 		width: 310px;
