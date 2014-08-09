@@ -1,9 +1,41 @@
+@font-face {
+    font-family: "Ninios";
+    font-style: normal;
+    font-weight: normal;
+    src:url("../fonts/KGNoRegretsSketch.ttf") format("ttf"), url("../fonts/KGNoRegretsSketch.ttf") format("truetype");
+}
+
+
 body{
-	background: url("../img/fondo.jpg") no-repeat;
+	background: #64FE2E;
+	font-size: 20px;
 	margin: 0px;
 	padding: 0px;
 }
 
 .principal{
-	background: red;
+	position: absolute;
+	left: 50%;
+	margin-left: -150px;
+	margin-top: -150px;
+	top: 50%;
+}
+
+.principal button{
+	background: rgba(195,119,44,0.8);
+	border-radius: 100%;
+	border: 2px solid rgba(244,162,80,0.8);
+	box-shadow: 1px 1px 20px;
+	height: 300px;
+	font-family: "Ninios";
+	font-size: 50px;
+	text-shadow: 1px 1px 5px;
+	width: 300px;
+}
+
+.principal button:hover{
+	border: 2px solid rgba(240,218,90,0.8);
+	box-shadow: 1px 1px 40px #010101;
+	color: rgba(240,218,90,0.8);
+	cursor: pointer;
 }
