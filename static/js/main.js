@@ -44,17 +44,23 @@ App.Router = Backbone.Router.extend({
 		}, this));
 	},
 
-	map: function(activityType){
+	map: function(activityType, name, lat, long){
 
-		var Activities = new Backbone.Collection({
-			url: "/api/actividades/" + activityType
+		var Activities = new Backbone.Collection({});
+
+		Activities.fetch({
+			url: "/api/actividades/" + activityType,
+			success: function(){
+				var view = new App.Views.MapView({
+					collection: Activities,
+					name: name,
+					lat: lat,
+					long: long
+				});
+				$('#main').html(view.render().$el);
+			}
 		});
 
-		var view = new App.Views.MapView({
-			collection: Activities
-		});
-
-		$('#main').html(view.render().$el);
 	},
 	newActivity: function(){
 		var view = new App.Views.NewActivityView();
@@ -140,13 +146,62 @@ App.Views.MapView = Backbone.View.extend({
 
 	template: _.template($("#mapTemplate").html()),
 
-	render: function(){
+	initialize: function(options){
 
-		console.log(this.collection);
+		this.lat = options.lat;
+		this.long = options.long;
+		this.name = options.name;
+
+		this.mapOptions = {
+			zoom: 14,
+			center: new google.maps.LatLng(this.lat, this.long),
+			mapTypeId: google.maps.MapTypeId.ROADMAP
+		};
+	},
+
+	render: function(){
 
 		this.$el.html(this.template());
 
+		this.map = new google.maps.Map(this.$('.sectionMap')[0], this.mapOptions);
+		this.$('.sectionMap').css('height', window.innerHeight);
+
+		this._addMarkers();
+		this._addActivities();
+
 		return this;
+	},
+	_addMarkers: function(){
+
+		this.collection.each(function(activity){
+
+			var fields = activity.get('fields');
+
+			var contentString = fields.nombre;
+
+			var infowindow = new google.maps.InfoWindow({
+				content: contentString
+			});
+
+			var myLatlng = new google.maps.LatLng(fields.latitud, fields.longitud);
+
+			var marker = new google.maps.Marker({
+				position: myLatlng,
+				title: fields.nombre
+			});
+
+			google.maps.event.addListener(marker, 'click', _.bind(function() {
+				infowindow.open(this.map,marker);
+			}, this));
+
+			marker.setMap(this.map);
+		}, this);
+	},
+	_addActivities: function(){
+
+		this.collection.each(function(activity){
+			this.$('.sectionMenu').prepend($('<article><p>'+activity.get('fields').nombre+' ('+activity.get('fields').participante.length+')</p><button>Unirse</button></article>'))
+		}, this);
 	}
 });
 
