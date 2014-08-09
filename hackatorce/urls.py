@@ -13,5 +13,9 @@ urlpatterns = patterns('',
     #url(r'^api/actividades/airelibre$', 'website.views.APIActividadesLibre'),
     #url(r'^api/actividades/adentro$', 'website.views.APIActividadesAdentro'),
     url(r'^api/actividades$', 'website.views.APICrearActividad'),
-    url(r'^api/actividades/(?P<id_actividad>\d+)/unirse$', 'website.views.APIUnirse')
+    url(r'^api/actividades/(?P<id_actividad>\d+)/unirse$', 'website.views.APIUnirse'),
+
+    #website urls
+	url(r'^$', 'website.views.Home'),
+
 	)
