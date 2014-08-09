@@ -1,7 +1,9 @@
 
 // Global Scope
 var App = {
-	Views: {}
+	Views: {},
+	Models: {},
+	Collections: {}
 };
 
 
@@ -13,14 +15,12 @@ App.Router = Backbone.Router.extend({
 	routes: {
 		"": "home",
 		"questions": "questions",
-		"map": "map"
+		"map/:type": "map"
 	},
 
 	home: function(){
-
 		var view = new App.Views.HomeView();
 		$('#main').html(view.render().$el);
-
 	},
 
 	questions: function(){
@@ -28,8 +28,16 @@ App.Router = Backbone.Router.extend({
 		$('#main').html(view.render().$el);
 	},
 
-	map: function(){
-		var view = new App.Views.MapView();
+	map: function(activityType){
+
+		var Activities = new Backbone.Collection({
+			url: "/api/actividades/" + activityType
+		});
+
+		var view = new App.Views.MapView({
+			collection: Activities
+		});
+
 		$('#main').html(view.render().$el);
 	}
 
@@ -71,10 +79,26 @@ App.Views.MapView = Backbone.View.extend({
 
 	render: function(){
 
+		console.log(this.collection);
+
 		this.$el.html(this.template());
 
 		return this;
 	}
+});
+
+
+// Models
+// ======
+
+App.Models.Activity = Backbone.Model.extend({});
+
+
+// Collections
+// ===========
+
+App.Collections.Activities = Backbone.Collection.extend({
+	url: '/api/actividades/adentro'
 });
 
 
