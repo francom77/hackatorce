@@ -22,10 +22,6 @@ body{
 	width: 100%;
 }
 
-h2{
-	font-size: 1em;
-}
-
 .principal{
 	position: absolute;
 	left: 47%;
@@ -52,7 +48,28 @@ h2{
 	-webkit-transtion: all 0.2s linear;
 }
 
-h1 {
+.sectionMap{
+	height: 100%;
+	width: 69%;
+}
+
+.sectionMenu{
+	height: 100%;
+	width: 29%;
+}
+
+.sectionMap, .sectionMenu{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sectionMenu article{
+	background: rgba(166,118,35, 0.9);
+	text-align: center;
+	height: 50px;
+}
+
+.sectionMenu article p{
 	margin: 0;
 }
 
