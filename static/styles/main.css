@@ -1,0 +1,9 @@
+body{
+	background: url("../img/fondo.jpg") no-repeat;
+	margin: 0px;
+	padding: 0px;
+}
+
+.principal{
+	background: red;
+}
