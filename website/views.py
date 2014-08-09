@@ -43,6 +43,14 @@ def APIUnirse(request, id_actividad):
 
     return HttpResponse(dumps(actividad), mimetype='application/json')
 
+def APIActividades(request):
+    actividades = serializers.serialize(
+        'python', Actividades.objects.all())
+
+    return HttpResponse(dumps(actividades), mymetype='application/json')
+
+        
+
 
 def APIActividadesAdentro(request):
     actividades = serializers.serialize(
