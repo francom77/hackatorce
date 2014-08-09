@@ -54,3 +54,6 @@ docs/_build/
 
 # DB files
 *.sqlite3
+
+#
+*.txt
