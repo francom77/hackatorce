@@ -162,6 +162,7 @@ App.Views.NewActivityView = Backbone.View.extend({
 
 		return this;
 	}
+});
 
 
 // Models
