@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @font-face {
     font-family: "Ninios";
     font-style: normal;
@@ -39,3 +40,26 @@ body{
 	color: rgba(240,218,90,0.8);
 	cursor: pointer;
 }
+=======
+
+/* 
+Base styles
+===========
+*/
+
+body, html {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+h1 {
+	margin: 0;
+}
+
+#main {
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+>>>>>>> 9f109c611ba674ebfd0fe25ff242efe2a85de5f7
