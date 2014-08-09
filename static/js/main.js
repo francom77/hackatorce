@@ -15,7 +15,8 @@ App.Router = Backbone.Router.extend({
 	routes: {
 		"": "home",
 		"questions": "questions",
-		"map/:type/:name/:lat/:long": "map"
+		"map/:type/:name/:lat/:long": "map",
+		"activity/new": "newActivity"
 	},
 
 	home: function(){
@@ -54,8 +55,11 @@ App.Router = Backbone.Router.extend({
 		});
 
 		$('#main').html(view.render().$el);
+	},
+	newActivity: function(){
+		var view = new App.Views.NewActivityView();
+		$('#main').html(view.render().$el);
 	}
-
 });
 
 
@@ -114,6 +118,8 @@ App.Views.QuestionsView = Backbone.View.extend({
 				lat: this.lat,
 				long: this.long
 			});
+		}else{
+			alert('El campo nombre es requerido');
 		}
 	},
 
@@ -124,7 +130,7 @@ App.Views.QuestionsView = Backbone.View.extend({
 				this.long = position.coords.longitude;
 			}, this));
 		}catch (e){
-			alert("Geolocation should be enabled");
+			alert("La geolocalización debe estar activada");
 		}
 	}
 });
@@ -133,6 +139,22 @@ App.Views.QuestionsView = Backbone.View.extend({
 App.Views.MapView = Backbone.View.extend({
 
 	template: _.template($("#mapTemplate").html()),
+
+	render: function(){
+
+		console.log(this.collection);
+
+		this.$el.html(this.template());
+
+		return this;
+	}
+});
+
+
+
+App.Views.NewActivityView = Backbone.View.extend({
+
+	template: _.template($("#actividadTemplate").html()),
 
 	render: function(){
 
