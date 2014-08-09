@@ -5,12 +5,25 @@
 	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}styles/main.css">
 </head>
 <body>
+	<div id="main"></div>
 
-	<section>
-		
-	</section>
+	<script id="homeTemplate" type="text/template">
+		<section class="principal">
+			<button>
+				Estoy aburrido!!
+			</button>
+		</section>
+	</script>
+	<script id="questionsTemplate" type="text/template">
+		<p>questions view</p>
+	</script>
+	<script id="mapTemplate" type="text/template">
+		<p>map view</p>
+	</script>
 
 	<script type="text/javascript" src="{{STATIC_URL}}js/jquery.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/underscore.js"></script>
+	<script type="text/javascript" src="{{STATIC_URL}}js/backbone.js"></script>
 	<script type="text/javascript" src="{{STATIC_URL}}js/main.js"></script>
 </body>
 </html>
