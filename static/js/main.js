@@ -57,6 +57,11 @@ App.Router = Backbone.Router.extend({
 					lat: lat,
 					long: long
 				});
+				view.on('map:ready', function(){
+					this.navigate("/activity/new", {
+						trigger: true
+					});
+				}, this);
 				$('#main').html(view.render().$el);
 			}
 		});
@@ -146,6 +151,10 @@ App.Views.MapView = Backbone.View.extend({
 
 	template: _.template($("#mapTemplate").html()),
 
+	events: {
+		"click #crearActividad": "_onNewActivity"
+	},
+
 	initialize: function(options){
 
 		this.lat = options.lat;
@@ -177,7 +186,7 @@ App.Views.MapView = Backbone.View.extend({
 
 			var fields = activity.get('fields');
 
-			var contentString = fields.nombre;
+			var contentString = "<h1 style='padding:0 15px;'>"+fields.nombre+"</h1>";
 
 			var infowindow = new google.maps.InfoWindow({
 				content: contentString
@@ -202,6 +211,9 @@ App.Views.MapView = Backbone.View.extend({
 		this.collection.each(function(activity){
 			this.$('.sectionMenu').prepend($('<article><p>'+activity.get('fields').nombre+' ('+activity.get('fields').participante.length+')</p><button>Unirse</button></article>'))
 		}, this);
+	},
+	_onNewActivity: function(){
+		this.trigger('map:ready');
 	}
 });
 
