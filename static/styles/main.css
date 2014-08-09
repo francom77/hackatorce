@@ -71,15 +71,35 @@ body{
 	text-align: center;
 }
 
-.sectionMenu article:hover{
-	background: rgba(213,154,72,0.9);
-	cursor: pointer;
-}
-
 .sectionMenu article p{
 	font-family: "Ninios";
+	float: left;
 	margin: 0;
-	padding: 15px;
+	padding: 15px 15px 5px 15px;
+	width: 65%;
+}
+
+.sectionMenu article button{
+	background: rgba(143,207,220,1);
+	border: 1px solid rgba(0,0,0,1);
+	border-radius: 5px;
+	float: left;
+	height: 30px;
+	margin-top:10px;
+	width: 22%; 
+}
+
+.sectionMenu article button:first-child{
+	background: rgba(217,193,122,0.9);
+	float: left;
+	margin-left: 15px;
+	width: 88%;
+}
+
+.sectionMenu article button:hover{
+	cursor: pointer;
+	font-weight: bolder;
+	box-shadow: 0px 0px 8px;
 }
 
 .activarSectionMenuArt{
