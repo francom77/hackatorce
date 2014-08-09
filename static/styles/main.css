@@ -38,6 +38,7 @@ body{
 	font-family: "Ninios";
 	font-size: 50px;
 	text-shadow: 1px 1px 5px;
+	outline: none;
 	width: 280px;
 }
 
@@ -65,12 +66,24 @@ body{
 
 .sectionMenu article{
 	background: rgba(166,118,35, 0.9);
-	text-align: center;
+	border: 2px solid rgba(0,0,0,1);
 	height: 50px;
+	text-align: center;
+}
+
+.sectionMenu article:hover{
+	background: rgba(213,154,72,0.9);
+	cursor: pointer;
 }
 
 .sectionMenu article p{
+	font-family: "Ninios";
 	margin: 0;
+	padding: 15px;
+}
+
+.activarSectionMenuArt{
+	background: rgba(213,154,72,0.9);
 }
 
 .questionHeader{
@@ -113,6 +126,7 @@ body{
 	font-family: "Ninios";
 	font-size: 25px;
 	text-shadow: 1px 1px 5px;
+	outline: none;
 	width: 150px;
 }
 
