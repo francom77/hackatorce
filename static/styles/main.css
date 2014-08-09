@@ -71,15 +71,35 @@ body{
 	text-align: center;
 }
 
-.sectionMenu article:hover{
-	background: rgba(213,154,72,0.9);
-	cursor: pointer;
-}
-
 .sectionMenu article p{
 	font-family: "Ninios";
+	float: left;
 	margin: 0;
-	padding: 15px;
+	padding: 15px 15px 5px 15px;
+	width: 65%;
+}
+
+.sectionMenu article button{
+	background: rgba(143,207,220,1);
+	border: 1px solid rgba(0,0,0,1);
+	border-radius: 5px;
+	float: left;
+	height: 30px;
+	margin-top:10px;
+	width: 22%; 
+}
+
+.sectionMenu article button:first-child{
+	background: rgba(217,193,122,0.9);
+	float: left;
+	margin-left: 15px;
+	width: 88%;
+}
+
+.sectionMenu article button:hover{
+	cursor: pointer;
+	font-weight: bolder;
+	box-shadow: 0px 0px 8px;
 }
 
 .activarSectionMenuArt{
@@ -138,6 +158,76 @@ body{
 }
 
 
+.sectionActividad{
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.sectionActividad input{
+	font-family: "Ninios";
+	font-size: 35px;
+	border: 1px solid black;
+	width: 95%;
+}
+
+.sectionActividad h2{
+	font-family: "Ninios";
+	font-size: 35px;
+}
+
+.sectionActividad button{
+	margin-top: 50px;
+	background: rgba(255,255,255,0.5);
+	border-radius: 100%;
+	border: 2px solid rgba(0,0,0,0.5);
+	height: 150px;
+	font-family: "Ninios";
+	font-size: 25px;
+	text-shadow: 1px 1px 5px;
+	outline: none;
+	width: 150px;
+}
+
+
+.sectionActividad button:hover{
+	box-shadow: 1px 1px 40px #010101;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	-webkit-transtion: all 0.2s linear;
+}
+
+@media only screen and (max-width : 768px){
+	.sectionMenu article p{
+		font-family: "Ninios";
+		float: left;
+		margin: 0;
+		padding: 15px 5px 5px 5px;
+		width: 70%;
+	}
+
+	.sectionMenu article button:hover{
+		font-weight: normal;
+	}
+}
+
+@media only screen and (max-width : 640px){
+	.sectionMap{
+		width: 100%;
+	}
+
+	.sectionMenu article button:hover{
+		font-weight: bolder;
+	}
+
+	.sectionMenu{
+		width: 100%;
+	}
+
+	.sectionMenu article button:first-child{
+		width: 95%;
+	}
+}
 
 @media only screen and (max-width : 480px) {
 	.questionHeader{
