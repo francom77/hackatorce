@@ -55,3 +55,83 @@ h2{
 h1 {
 	margin: 0;
 }
+
+.questionHeader{
+	width: 500px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+.questionHeader h2{
+	font-family: "Ninios";
+	font-size: 35px;
+	text-align: center;
+}
+
+.questionHeader input{
+	font-family: "Ninios";
+	font-size: 35px;
+	border: 1px solid black;
+	width: 95%;
+}
+
+.questionSection {
+	width: 500px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.questionSection h2{
+	font-family: "Ninios";
+	font-size: 35px;
+	text-align: center;
+}
+
+.questionSection button{
+	background: rgba(255,255,255,0.5);
+	border-radius: 100%;
+	border: 2px solid rgba(0,0,0,0.5);
+	height: 150px;
+	font-family: "Ninios";
+	font-size: 25px;
+	text-shadow: 1px 1px 5px;
+	width: 150px;
+}
+
+.questionSection button:hover{
+	box-shadow: 1px 1px 40px #010101;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	-webkit-transtion: all 0.2s linear;
+}
+
+
+
+@media only screen and (max-width : 480px) {
+	.questionHeader{
+		width: 310px;
+	}
+
+	.questionHeader h2{
+		font-size: 20px;
+	}	
+
+	.questionHeader input{
+		font-size: 20px;
+	}
+
+	.questionSection {
+		width: 310px;
+	}
+	.questionSection h2{
+		font-size: 20px;
+	}
+	.questionSection button{
+		display: inline-block;
+		height: 95px;
+		font-size: 15px;
+		width: 33%;
+
+	}
+}
