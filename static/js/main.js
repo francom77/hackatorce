@@ -34,6 +34,12 @@ App.Router = Backbone.Router.extend({
 	questions: function(){
 		var view = new App.Views.QuestionsView();
 		$('#main').html(view.render().$el);
+
+		view.on('questions:ready', _.bind(function(data){
+			this.navigate('map/' + data.activityType, {
+				trigger: true
+			});
+		}, this));
 	},
 
 	map: function(activityType){
@@ -80,11 +86,29 @@ App.Views.QuestionsView = Backbone.View.extend({
 
 	template: _.template($("#questionsTemplate").html()),
 
+	events: {
+		"click button": "_handleButton",
+	},
+
 	render: function(){
 
 		this.$el.html(this.template());
 
 		return this;
+	},
+
+	_handleButton: function(event){
+
+		var activityType = event.target.id;
+		var name = this.$('input[name="nombre"]').val();
+
+		if(name !== ''){
+			this.trigger('questions:ready', {
+				name: name,
+				activityType: activityType,
+				point: ""
+			});
+		}
 	}
 });
 
@@ -94,8 +118,6 @@ App.Views.MapView = Backbone.View.extend({
 	template: _.template($("#mapTemplate").html()),
 
 	render: function(){
-
-		console.log(this.collection);
 
 		this.$el.html(this.template());
 
@@ -107,15 +129,9 @@ App.Views.MapView = Backbone.View.extend({
 // Models
 // ======
 
-App.Models.Activity = Backbone.Model.extend({});
-
 
 // Collections
 // ===========
-
-App.Collections.Activities = Backbone.Collection.extend({
-	url: '/api/actividades/adentro'
-});
 
 
 // Bootstrap App
