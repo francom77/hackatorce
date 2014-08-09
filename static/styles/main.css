@@ -1,51 +1,9 @@
-<<<<<<< HEAD
 @font-face {
     font-family: "Ninios";
     font-style: normal;
     font-weight: normal;
-    src:url("../fonts/KGNoRegretsSketch.ttf") format("ttf"), url("../fonts/KGNoRegretsSketch.ttf") format("truetype");
+    src: url("../fonts/KGNoRegretsSketch.ttf") format("ttf"), url("../fonts/KGNoRegretsSketch.ttf") format("truetype");
 }
-
-
-body{
-	background: #64FE2E;
-	font-size: 20px;
-	margin: 0px;
-	padding: 0px;
-}
-
-.principal{
-	position: absolute;
-	left: 50%;
-	margin-left: -150px;
-	margin-top: -150px;
-	top: 50%;
-}
-
-.principal button{
-	background: rgba(195,119,44,0.8);
-	border-radius: 100%;
-	border: 2px solid rgba(244,162,80,0.8);
-	box-shadow: 1px 1px 20px;
-	height: 300px;
-	font-family: "Ninios";
-	font-size: 50px;
-	text-shadow: 1px 1px 5px;
-	width: 300px;
-}
-
-.principal button:hover{
-	border: 2px solid rgba(240,218,90,0.8);
-	box-shadow: 1px 1px 40px #010101;
-	color: rgba(240,218,90,0.8);
-	cursor: pointer;
-}
-=======
-
-/* 
-Base styles
-===========
-*/
 
 body, html {
 	width: 100%;
@@ -53,13 +11,144 @@ body, html {
 	margin: 0;
 }
 
-h1 {
+body{
+	background-image:url('../img/fondo.jpg');
+	background-repeat:no-repeat;
+	background-size:cover;
+	display: block;
+	font-size: 20px;
+	height: 100%;
+	padding: 0px;
+	width: 100%;
+}
+
+.principal{
+	position: absolute;
+	left: 47%;
+	margin-left: -140px;
+	margin-top: -140px;
+	top: 50%;
+}
+
+.principal button{
+	background: rgba(255,255,255,0.5);
+	border-radius: 100%;
+	border: 2px solid rgba(0,0,0,0.5);
+	height: 280px;
+	font-family: "Ninios";
+	font-size: 50px;
+	text-shadow: 1px 1px 5px;
+	width: 280px;
+}
+
+.principal button:hover{
+	box-shadow: 1px 1px 40px #010101;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	-webkit-transtion: all 0.2s linear;
+}
+
+.sectionMap{
+	height: 100%;
+	width: 69%;
+}
+
+.sectionMenu{
+	height: 100%;
+	width: 29%;
+}
+
+.sectionMap, .sectionMenu{
+	display: inline-block;
+	vertical-align: top;
+}
+
+.sectionMenu article{
+	background: rgba(166,118,35, 0.9);
+	text-align: center;
+	height: 50px;
+}
+
+.sectionMenu article p{
 	margin: 0;
 }
 
-#main {
-	width: 100%;
-	height: 100%;
-	display: block;
+.questionHeader{
+	width: 500px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
 }
->>>>>>> 9f109c611ba674ebfd0fe25ff242efe2a85de5f7
+.questionHeader h2{
+	font-family: "Ninios";
+	font-size: 35px;
+	text-align: center;
+}
+
+.questionHeader input{
+	font-family: "Ninios";
+	font-size: 35px;
+	border: 1px solid black;
+	width: 95%;
+}
+
+.questionSection {
+	width: 500px;
+	height: 200px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.questionSection h2{
+	font-family: "Ninios";
+	font-size: 35px;
+	text-align: center;
+}
+
+.questionSection button{
+	background: rgba(255,255,255,0.5);
+	border-radius: 100%;
+	border: 2px solid rgba(0,0,0,0.5);
+	height: 150px;
+	font-family: "Ninios";
+	font-size: 25px;
+	text-shadow: 1px 1px 5px;
+	width: 150px;
+}
+
+.questionSection button:hover{
+	box-shadow: 1px 1px 40px #010101;
+	cursor: pointer;
+	transition: all 0.2s linear;
+	-webkit-transtion: all 0.2s linear;
+}
+
+
+
+@media only screen and (max-width : 480px) {
+	.questionHeader{
+		width: 310px;
+	}
+
+	.questionHeader h2{
+		font-size: 20px;
+	}	
+
+	.questionHeader input{
+		font-size: 20px;
+	}
+
+	.questionSection {
+		width: 310px;
+	}
+	.questionSection h2{
+		font-size: 20px;
+	}
+	.questionSection button{
+		display: inline-block;
+		height: 95px;
+		font-size: 15px;
+		width: 33%;
+
+	}
+}
