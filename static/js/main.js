@@ -167,6 +167,7 @@ App.Views.MapView = Backbone.View.extend({
 		this.$('.sectionMap').css('height', window.innerHeight);
 
 		this._addMarkers();
+		this._addActivities();
 
 		return this;
 	},
@@ -189,12 +190,18 @@ App.Views.MapView = Backbone.View.extend({
 				title: fields.nombre
 			});
 
-			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.open(map,marker);
-			});
+			google.maps.event.addListener(marker, 'click', _.bind(function() {
+				infowindow.open(this.map,marker);
+			}, this));
 
 			marker.setMap(this.map);
-		});
+		}, this);
+	},
+	_addActivities: function(){
+
+		this.collection.each(function(activity){
+			this.$('.sectionMenu').prepend($('<article><p>'+activity.get('fields').nombre+' ('+activity.get('fields').participante.length+')</p><button>Unirse</button></article>'))
+		}, this);
 	}
 });
 
