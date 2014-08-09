@@ -12,8 +12,8 @@ class Participante(models.Model):
 
 class Actividad(models.Model):
 	nombre = models.CharField(max_length=30)
-	horarioInicio = models.DateTimeField()
-	horarioFin = models.DateTimeField()
+	horario_inicio = models.CharField(max_length=30)
+	horario_fin = models.CharField(max_length=30)
 	participante = models.ManyToManyField(Participante, blank=True)
 	#localizacion
 	latitud = models.CharField(max_length=30)
@@ -21,8 +21,8 @@ class Actividad(models.Model):
 	airelibre = 'a'
 	adentro = 'd'
 	tipo_choices = (
-			(airelibre, 'airelibre'),
-			(adentro, 'adentro'),
+			(airelibre, 'Aire Libre'),
+			(adentro, 'Adentro'),
 
 
 		)

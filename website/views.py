@@ -21,12 +21,11 @@ def APICrearActividad(request):
     #la guardamos
     actividad.save()
 
-    # devolvemos el status del la consulta
-    response = {
-        'status':'OK'
-    }
+    actividad = [actividad]
+    actividad = serializers.serialize(
+        'python', actividad)
     
-    return HttpResponse(dumps(response), mimetype='application/json')
+    return HttpResponse(dumps(actividad), mimetype='application/json')
 
 
 @csrf_exempt
@@ -35,7 +34,12 @@ def APIUnirse(request, id_actividad):
     actividad = get_object_or_404(Actividad, pk=id_actividad)
     participante = Participante(nombre = request.POST['nombre'],
         edad = request.POST['edad'])
+    participante.save()
     actividad.participante.add(participante)
+
+    actividad = [actividad]
+    actividad = serializers.serialize(
+        'python', actividad)
 
     return HttpResponse(dumps(actividad), mimetype='application/json')
 
@@ -47,7 +51,7 @@ def APIActividadesAdentro(request):
     return HttpResponse(dumps(actividades), mimetype='application/json')
 
 
-def APIActividadesAfuera(request):
+def APIActividadesLibre(request):
     actividades = serializers.serialize(
         'python', Actividad.objects.filter(tipo='a'))
 
