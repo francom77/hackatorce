@@ -50,7 +50,7 @@ App.Router = Backbone.Router.extend({
 
 		Activities.fetch({
 			url: "/api/actividades/" + activityType,
-			success: function(){
+			success: _.bind(function(){
 				var view = new App.Views.MapView({
 					collection: Activities,
 					name: name,
@@ -63,7 +63,7 @@ App.Router = Backbone.Router.extend({
 					});
 				}, this);
 				$('#main').html(view.render().$el);
-			}
+			}, this)
 		});
 
 	},
@@ -152,7 +152,7 @@ App.Views.MapView = Backbone.View.extend({
 	template: _.template($("#mapTemplate").html()),
 
 	events: {
-		"click #crearActividad": "_onNewActivity"
+		"click #crear": "_onNewActivity"
 	},
 
 	initialize: function(options){
